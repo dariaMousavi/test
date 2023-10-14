@@ -1,0 +1,47 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "mongodb"
+  url      = env("DATABASE_URL")
+}
+
+//TODO make email userName unique
+
+model User {
+  id              String     @id @default(auto()) @map("_id") @db.ObjectId
+  userName        String     @unique
+  email           String     @unique
+  password        String
+  firstName       String     @default("Panda")
+  lastName        String     @default("Paints")
+  birthday        DateTime   @default(now())
+  exerciseHistory Session[]
+  mealHistory     Meal[]
+  createdAt       DateTime   @default(now())
+  updatedAt       DateTime   @updatedAt
+}
+
+model Session {
+  id String @id @default(auto()) @map("_id") @db.ObjectId
+  activities Json
+  time String
+  caloriesBurned Int
+  createdAt DateTime @default(now())
+  userId String 
+  user User  @relation(fields: [userId], references: [id])
+}
+
+model Meal {
+  id String @id @default(auto()) @map("_id") @db.ObjectId
+  ingredients Json
+  totalCals Int
+  type String
+  createdAt DateTime @default(now())
+  userId    String  
+  user      User     @relation(fields: [userId], references: [id])
+}

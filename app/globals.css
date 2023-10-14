@@ -1,0 +1,123 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700;800;900&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* -------------- Reset styles -------------- */
+
+/* Box sizing rules  */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+/* Remove default margin */
+body,
+h1,
+h2,
+h3,
+h4,
+p,
+figure,
+blockquote,
+dl,
+dd {
+  margin: 0;
+}
+
+/* Remove list styles on ul, ol elements with a list role, which suggests default styling will be removed */
+ul[role='list'],
+ol[role='list'] {
+  list-style: none;
+}
+
+/* Set core root defaults */
+html:focus-within {
+  scroll-behavior: smooth;
+}
+
+/* Set core body defaults */
+body {
+  line-height: 1.5;
+  font-family: 'Inter', sans-serif;
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+}
+
+#welcome-background {
+  position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+}
+
+.bg-mainNavGreen {
+  background-color: #353535;
+  border: 0.2rem solid #2de86b;
+  width: 4.5rem;
+  height: 4.5rem;
+  border-radius: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.bg-mainDarkBlack {
+  background-color: #292828;
+}
+
+/* -------------- Variables for reuseable styling  -------------- */
+
+.sectionMainPages {
+  @apply h-screen bg-mainBlack text-mainWhite  text-2xl flex flex-col overflow-scroll;
+}
+
+.titleCards {
+  @apply font-bold min-w-[10rem] border-b-4 border-mainGreen truncate;
+}
+
+.cardBackground {
+  @apply bg-darkBlack  rounded-lg mx-4  my-2 shadow-lg p-4;
+}
+
+.cardProfile {
+  @apply bg-darkBlack  rounded-lg m-4 shadow-md p-4;
+}
+
+.cardBgPhoto {
+  @apply rounded-lg mx-4 shadow-md p-4;
+}
+
+.titlehome {
+  @apply text-lg font-semibold px-4;
+}
+
+.inputLogin {
+  @apply text-base font-semibold bg-mainBlack rounded-xl p-3 border-2 border-lightGreen mb-2 w-full shadow-lg;
+}
+
+.buttonConfirm {
+  @apply text-base font-bold bg-lightGreen text-mainBlack rounded-xl p-4 px-8 shadow-lg;
+}
+
+.buttonSelect {
+  @apply text-base text-mainWhite  border-2 border-mainGreen bg-mainBlack rounded-lg p-4  cursor-pointer shadow-lg;
+}
+
+.buttonLogin {
+  @apply rounded-xl p-3 border-2 border-lightGreen mt-2 font-semibold text-base w-2/3 shadow-lg;
+}
+
+.buttonAddActivityOrFood {
+  @apply rounded-xl p-3 border-2 border-lightGreen mt-5  font-bold text-base w-[350px]  shadow-lg bg-lightGreen text-mainBlack self-center mb-5;
+}
+
+.cardsSearch {
+  @apply bg-mainDarkBlack rounded-lg my-3 max-w-xs p-5 flex flex-col  w-full shadow-lg;
+}
